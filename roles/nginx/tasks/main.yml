@@ -1,0 +1,24 @@
+---
+- name: Install nginx
+  apt:
+    name: "nginx{{ version }}"
+
+- name: Set nginx config
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+
+- name: Remove default nginx config
+  file:
+    path: /etc/nginx/conf.d/default.conf
+
+- name: Set a config
+  template:
+    src: super.conf.j2
+    dest: /etc/nginx/conf.d/super.conf
+  notify: restart nginx
+
+- name: Start / enable nginx
+  service:
+    name: nginx
+    state: started
