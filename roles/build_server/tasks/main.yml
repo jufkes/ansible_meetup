@@ -33,6 +33,5 @@
     ansible_ssh_host={{ item.ipaddress }}
     ansible_ssh_user=root
     ansible_ssh_pass={{ serverpass.stdout }}
-    server_port={{ server_port }}
     groupname=Nginx
   with_items: "{{ nginx.servers }}"
