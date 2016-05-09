@@ -1,1 +1,2 @@
-version: "-1.8"
+nginx_owner: nginx
+nginx_group: nginx
