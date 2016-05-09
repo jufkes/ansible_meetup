@@ -3,4 +3,4 @@
   hosts: localhost
   connection: local
   roles:
-     - build_clc_server
+     - build_server
